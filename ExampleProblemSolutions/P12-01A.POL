@@ -1,0 +1,30 @@
+12.1(a) THREE STAGE FLASH EVAPORATOR FOR RECOVERING HEXANE FROM OCTANE |POLVER05_1 |2
+F1 = 100 #Total feed rate to stage 1 in kg-mol/h
+# Feed enthalpy calculation
+f(TF) = 0.5 * k1F + 0.5 * k2F - 1 #Bubble point calculation of feed stream
+TF(0) = 100 #Initial estimate of bubble point temperature for feed stream
+k1F = 10 ^ (6.87776 - 1171.53 / (224.366 + TF)) / 760 #k factor calculation for component 1
+k2F = 10 ^ (6.92374 - 1355.126 / (209.517 + TF)) / 760 #k factor calculation for component 2
+hlF = F1 * (0.5 * 51.72 * TF + 0.5 * 66.07 * TF) #Enthalpy calculation at bubble point
+# Stage 1 calculations
+T1 = 100 #Temperature of stage 1
+f(alpha1) = x11 * (1 - k11) + x21 * (1 - k21) #Calculation of alpha1 - fraction evaporated in stage 1
+alpha1(0) = 0.5 #Initial estimate for alpha1
+x11 = 0.5 / (1 + alpha1 * (k11 - 1)) #Mole fraction of component 1 in liquid leaving stage 1
+x21 = 0.5 / (1 + alpha1 * (k21 - 1)) #Mole fraction of component 2 lin liquid leaving stage 1
+k11 = 10 ^ (6.87776 - 1171.53 / (224.366 + T1)) / 760 #k factor calculation for component 1
+k21 = 10 ^ (6.92374 - 1355.126 / (209.517 + T1)) / 760 #k factor calculation for component 1
+L1 = (1 - alpha1) * F1 #Liquid flow rate exiting stage 1
+V1 = alpha1 * F1 #Vapor flow rate exiting stage 1
+y21 = k21 * x21 #Mole fraction of component 1 in vapor leaving stage 1 
+y11 = k11 * x11 #Mole fraction of component 2 in vapor leaving stage 1
+HV1 = V1 * (y11 * (7678 + T1 * (31.83 + 0.0903 * T1 / 2)) + y21 * (10444.7 + T1 * (41.836 + 0.1218 * T1 / 2))) #Enthalpy of vapor leaving stage 1
+hl1 = L1 * (x11 * 51.72 * T1 + x21 * 66.07 * T1) #Enthalpy of liquid leaving stage 1
+Q1 = HV1 + hl1 - hlF #Energy balance on stage 1
+# Cooler I heat duty calculations
+f(TI) = y11 * k1I + y21 * k2I - 1 #Bubble point calculation for condenser I
+TI(0) = 100 #Initial estimate of bubble point calculation for condenser I
+k1I = 10 ^ (6.87776 - 1171.53 / (224.366 + TI)) / 760 #k factor calculation for component 1
+k2I = 10 ^ (6.92374 - 1355.126 / (209.517 + TI)) / 760 #k factor calculation for component 2
+hlI = V1 * (y11 * 51.72 * TI + y21 * 66.07 * TI) #Enthalpy of liquid leaving condenser I
+QI = hlI - HV1 #Energy balance on condenser I

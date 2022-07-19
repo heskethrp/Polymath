@@ -1,0 +1,19 @@
+13.5(b) DYNAMICS AND CONTROL OF A FLOW-THROUGH STORAGE TANK |POLVER05_0 |1
+d(errsum) / d(t) = hp # The symbol for the prime ‘ is “p”
+errsum(0) = 0
+d(hp) / d(t) = (F1p-(Kc*hp+Kc*errsum/tauI))/Ac
+t(0) = 0
+t(f) = 40
+hp(0) = 0
+Ac=10
+hs=5
+F1s=3
+F2s=3
+Kc= 2.
+tauI=0.6
+F1p=F1-F1s
+F1=0.50*F1s
+F2p=Kc*hp+Kc*errsum/tauI
+F2=F2p+F2s
+h=hp+hs
+

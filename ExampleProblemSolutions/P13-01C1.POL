@@ -1,0 +1,18 @@
+13-1(c1) MODELING THE DYNAMICS OF FIRST AND SECOND ORDER SYSTEMS  |POLVER05_0 |1
+#General Linear Second-Order ODE with Step Change at t = 0
+#Case 1 - Overdamped Response whe zeta>1
+zeta=2 #Arbitrary selection
+tau=5
+k=4
+du=10
+t(0) = 0
+t(f) = 75
+d(y) / d(t) = dydt
+y(0) = 0
+d(dydt)/d(t)=-2*zeta*dydt/tau-y/tau^2+k*du/tau^2
+dydt(0)=0
+tOVERtau=t/tau
+yOVERkdu=y/(k*du)
+yOVERkduANAL=1+(tau1*exp(-t/tau1)-tau2*exp(-t/tau2))/(tau2-tau1)
+tau1=tau/(zeta-sqrt(zeta^2-1))
+tau2=tau/(zeta+sqrt(zeta^2-1))

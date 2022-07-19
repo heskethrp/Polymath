@@ -1,0 +1,24 @@
+13.6(a) DYNAMICS AND CONTROL OF A STIRRED TANK HEATER  |POLVER05_0 |1
+d(T)/d(t) =   (WC*(Ti-T)+q)/rhoVCp  
+d(T0)/d(t) =   (T-T0-(taud/2)*dTdt)*2/taud  
+d(Tm)/d(t) =   (T0-Tm)/taum  
+d(errsum)/d(t) =   Tr-Tm  
+WC =   500  
+rhoVCp =   4000  
+taud =   1  
+taum =   5  
+Tr =   80  
+Kc =   0  
+tauI =   2  
+step =   if (t<10) then (0) else (1)  
+Ti =   60+step*(-20)  
+q =   10000+Kc*(Tr-Tm)+Kc/tauI*errsum  
+dTdt =   (WC*(Ti-T)+q)/rhoVCp  
+t(0)=0
+T(0)=80
+T0(0)=80
+Tm(0)=80
+errsum(0)=0
+t(f)=60
+
+

@@ -1,0 +1,75 @@
+12.8 RIGOROUS DISTILLATION CALCULATIONS FOR A SIMPLE SEPARATION TOWER       |POLVER05_1 |2
+# Specifications
+F = 1 # Feed flow rate
+z1 = 0.23 # Mole fraction of component 1 in the feed
+z2 = 1 - z1 # Mole fraction of component 2 in the feed
+B = 0.75 # Bottoms flow rate
+D = 0.25 # Distillate flow rate
+P = 760 * 120 / 14.7 # Columns pressure (mmHg)
+Q = 10000 # Reboiler's heat duty
+
+# Condenser flow rate, temperature and enthalpy
+L0 = V1 - D # Liquid returning from the condenser
+x10 = k11 * x11
+x20 = k21 * x21
+f(t0) = k10 * x10 + k20 * x20 - 1 # Bubble point temperature
+t0(0) = 200
+k10 = 10 ^ (6.80776 - 935.77 / ((t0 - 32) * 5 / 9 + 238.789)) / P
+k20 = 10 ^ (6.85296 - 1064.84 / ((t0 - 32) * 5 / 9 + 232.012)) / P
+h0 = t0 * (29.6 + 0.04 * t0) * x10 + t0 * (38.5 + 0.025 * t0) * x20 # Liquid from condenser
+
+# Stage 1 flow rates, temperatures, enthalpies and composition
+L1 = V2 - D # Liquid flow rate from stage 1
+f(x11) = -((V1 - L0) * k11 + L1) * x11 + V2 * k12 * x12 # Component 1 stage 1Mole Balance
+x11(0) = 0.6523
+f(x21) = -((V1 - L0) * k21 + L1) * x21 + V2 * k22 * x22 # Component 2 stage 1 Mole Balance
+x21(0) = 0.35
+f(t1) = k11 * x11 + k21 * x21 - 1 # Stage 1 Bubble Point Temp.
+t1(0) = 145
+f(V1) = -V1 * hv1 + V2 * hv2 - L1 * hl1 + L0 * h0 # Stage 1Enthalpy Balance
+V1(0) = 1.1
+# Stage 1 phase equilibrium ratios and enthalpies
+k11 = 10 ^ (6.80776 - 935.77 / ((t1 - 32) * 5 / 9 + 238.789)) / P
+k21 = 10 ^ (6.85296 - 1064.84 / ((t1 - 32) * 5 / 9 + 232.012)) / P
+hl1 = t1 * (29.6 + 0.04 * t1) * x11 + t1 * (38.5 + 0.025 * t1) * x21 # Stage 1 liquid
+hv1 = (8003 + t1 * (43.8 - 0.04 * t1)) * k11 * x11 + (12004 + t1 * (31.7 + 0.007 * t1)) * k21 * x21 # Stage 1 vapor
+
+# Feed temperature and enthalpy
+f(tf) = k1f * z1 + k2f * z2 - 1 # Feed (bubble point) temperature
+tf(0) = 200
+k1f = 10 ^ (6.80776 - 935.77 / ((tf - 32) * 5 / 9 + 238.789)) / P
+k2f = 10 ^ (6.85296 - 1064.84 / ((tf - 32) * 5 / 9 + 232.012)) / P
+hf = tf * (29.6 + 0.04 * tf) * z1 + tf * (38.5 + 0.025 * tf) * z2 # Enthalpy of feed
+
+# Stage 2 flow rates, temperatures, enthalpies and composition
+L2 = V3 + F - D # Stage 2
+f(x12) = L1 * x11 - (V2 * k12 + L2) * x12 + V3 * k13 * x13 + z1 * F # Component 1 stage 2
+x12(0) = 0.43
+f(x22) = L1 * x21 - (V2 * k22 + L2) * x22 + V3 * k23 * x23 + z2 * F # Component 2 stage 2
+x22(0) = 0.57
+f(t2) = k12 * x12 + k22 * x22 - 1 # Stage 2
+t2(0) = 190
+f(V2) = -V2 * hv2 + V3 * hv3 + hf + L1 * hl1 - L2 * hl2 # Stage 2
+V2(0) = 1
+# Stage 2 phase equilibrium ratios and enthalpies
+k12 = 10 ^ (6.80776 - 935.77 / ((t2 - 32) * 5 / 9 + 238.789)) / P
+k22 = 10 ^ (6.85296 - 1064.84 / ((t2 - 32) * 5 / 9 + 232.012)) / P
+hl2 = t2 * (29.6 + 0.04 * t2) * x12 + t2 * (38.5 + 0.025 * t2) * x22 # Stage 2 liquid
+hv2 = (8003 + t2 * (43.8 - 0.04 * t2)) * k12 * x12 + (12004 + t2 * (31.7 + 0.007 * t2)) * k22 * x22 # Stage 2 vapor
+
+# Stage 3 flow rates, temperatures, enthalpies and composition
+L3 = B # Stage 3
+f(x13) = L2 * x12 - (V3 * k13 + B) * x13 # Component 1 stage 3
+x13(0) = 0.33
+f(x23) = L2 * x22 - (V3 * k23 + B) * x23 # Component 2 stage 3
+x23(0) = 0.76
+f(t3) = k13 * x13 + k23 * x23 - 1 # Stage 3
+t3(0) = 210
+f(V3) = -V3 * hv3 + Q + L2 * hl2 - L3 * hl3 # Stage 3
+V3(0) = 1.1
+# Stage 3 phase equilibrium ratios and enthalpies
+k13 = 10 ^ (6.80776 - 935.77 / ((t3 - 32) * 5 / 9 + 238.789)) / P
+k23 = 10 ^ (6.85296 - 1064.84 / ((t3 - 32) * 5 / 9 + 232.012)) / P
+hl3 = t3 * (29.6 + 0.04 * t3) * x13 + t3 * (38.5 + 0.025 * t3) * x23 # Stage 3 liquid
+hv3 = (8003 + t3 * (43.8 - 0.04 * t3)) * k13 * x13 + (12004 + t3 * (31.7 + 0.007 * t3)) * k23 * x23 # Stage 3 vapor
+

@@ -1,0 +1,15 @@
+13.1(a) MODELING THE DYNAMICS OF FIRST AND SECOND ORDER SYSTEMS  |POLVER05_0 |1
+#General First-Order Linear ODE with Step Change at t = 0
+tOVERtau=2  #Arbitrary selection: t/tau = 2
+tau=3 #Given value of tau
+k=3 #Given value of gain
+du=2 #Given value of forcing function (disturbance)
+d(y) / d(t) = k*du/tau-y/tau #Differential equation
+yOVERkduANAL=(1-exp(-tOVERtau)) #Calculated value of dimensionless response
+yANAL=yOVERkduANAL*k*du #Calculated value of y(t)
+y(0) = 0 #Initial value of y(t)
+t(0) = 0 #initial value of t
+t(f) = 6 # Final value of t calcul.ated from t(f) = tOVERtau*tau = 2*3 = 6
+
+
+

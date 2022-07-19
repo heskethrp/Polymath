@@ -1,0 +1,26 @@
+13.2(a) DYNAMICS OF A U-TUBE MANOMETER  |POLVER05_0 |1
+#General Linear Second-Order ODE with Step Change at t = 0 for Underdamp System
+L=150
+mu=0.01
+rho=1.0
+g=980.7
+R=0.25
+tau=sqrt(L/g)
+zeta=4*mu*sqrt(L/g)/(rho*R^2)
+kdu=50
+d(y) / d(t) = dydt
+y(0) = 0
+d(dydt)/d(t)=-2*zeta*dydt/tau-y/tau^2+kdu/tau^2
+dydt(0)=0
+t(0) = 0
+t(f) = 10
+tOVERtau=t/tau
+yOVERkdu=y/(kdu)
+yOVERkduANAL=if (t>0) then (1-1/sqrt(1-zeta^2)*exp(-zeta*t/tau)*sin(alpha*t+phi)) else (0)
+alpha=sqrt(1-zeta^2)/tau
+phi=arctan(sqrt(1-zeta^2)/zeta)
+hNUM=y
+hANAL=yOVERkduANAL*kdu
+
+
+

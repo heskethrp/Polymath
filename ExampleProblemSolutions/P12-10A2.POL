@@ -1,0 +1,15 @@
+12.10(a2) BATCH DISTILLATION OF A WATER-ETHANOL MIXTURE -  Final Temperatures   |POLVER05_1 |2
+f(T) = 1 - k1 * x1 - k2 * x2
+T(min) = 70
+T(max) = 100
+x1 = 0.8
+x2 = 1 - x1
+gamma1 = 10 ^ (x2 * x2 * (0.3781 + 2 * x1 * (0.6848 - 0.3781)))
+gamma2 = 10 ^ (x1 * x1 * (0.6848 + 2 * x2 * (0.3781 - 0.6848)))
+P1 = 10 ^ (7.96681 - 1668.21 / (T + 228))
+P2 = 10 ^ (8.04494 - 1554.3 / (T + 222.65))
+k2 = gamma2 * P2 / 760
+k1 = gamma1 * P1 / 760
+alpha12 = k1 / k2
+
+

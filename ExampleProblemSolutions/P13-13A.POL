@@ -1,0 +1,18 @@
+13.13(a) LEVEL CONTROL OF TWO INTERACTIVE TANKS  |POLVER05_0 |1
+d(H1)/d(t)=4*(Q1-Q2)/(3.1416*d^2)
+d(H2)/d(t)=4*(Q2-Q0)/(3.1416*d^2)
+Q2=if (H1>H2) then (63.2*sqrt(H1-H2)) else (0)
+err=H2-Hd
+Q0=if (H2>0) then (C0*sqrt(H2)) else (0)
+Q11=Qmax*(0.5-Kc*(H2-Hd))
+Q1=if (Q11>Qmax) then (Qmax) else (if (Q11<0) then (0) else (Q11))
+Kc=0.48
+Hd=5
+C0=31.6
+Qmax=500
+d=10
+H1(0)=0
+H2(0)=0
+t(0)=0
+t(f)=50
+

@@ -1,0 +1,30 @@
+13.3(a1) DYNAMICS AND STABILITY OF AN EXOTHERMIC CSTR |POLVER05_0 |1
+F0=40
+F=40
+CA0=0.55
+V=48
+Fj=49.9
+Cp=0.75
+alpha=7.08E10
+rho=50
+R=1.9872
+U=150
+A=250
+Tj0=530
+T0=530
+lambda=-30000
+Cj=1
+E=30000
+rhoj=62.3
+Vj=12
+k=alpha*exp(-E/(R*T))
+d(CA) / d(t) = (F0*CA0-F*CA-V*k*CA)/V 
+CA(0) = 0.5214 
+d(T) / d(t) = (rho*Cp*(F0*T0-F*T)-lambda*V*k*CA-U*A*(T-Tj))/(rho*V*Cp) 
+T(0) = 537.86
+d(Tj) / d(t) = (rhoj*Cj*Fj*(Tj0-Tj)+U*A*(T-Tj))/(rhoj*Vj*Cj) 
+Tj(0) =537.25
+t(0) = 0
+t(f) = 10
+
+

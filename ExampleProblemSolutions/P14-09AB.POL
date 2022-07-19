@@ -1,0 +1,21 @@
+14.9(ab) DYNAMIC MODELING OF A CHEMOSTAT  |POLVER05_0 |1
+d(V)/d(t) =  If (V) <= (1.0) Then (F0) Else (0) # Chemostat volume in km3l
+d(Nx)/d(t) = -F * X + (mum * S / (Ks + S + I * Ks / KI) - kd) * V * X # Mass of cells in chemostat in g
+d(Ns)/d(t) = F0 * S0 - F * S - V * X / Yxs * mum * S / (Ks + S + I * Ks / KI) # Mass of substrate in chemostat in g
+F =  If (V <= 1.0) Then (0) Else (F0) #Flow rate from chemostat in dm3/h
+F0 =If (V <= 1.0) Then ( 0.25) Else (1) #Feed rate to chemostat in dm3/hr
+Yxs = 0.15 #Yield coefficient for cells from substrate in g cell/g S
+S0 = 12 #Substrate concentration in feed stream in g/dm3
+kd = 0.04 #Death rate coefficient in h-1
+KI = 0.02 #Growth parameter constant for inhibitor in g/dm3
+Ks = 0.9 #Growth parameter constant for substrate in g/dm3
+mum = 1.6 #Maximum specific growth rate constant in h-1
+X = Nx / V # Concentration of cells in mg/ml or g/L or g/dm3
+S = Ns / V # Concentration of substrate in mg/ml or g/L or g/dm3
+D = F / V #Dilution rate in hr-1
+I = 0.0 #Inhibitor concentration in mg/ml or g/L or g/dm3
+t(0) = 0 #Initial condition for time
+t(f) = 10 #Final condition for time
+V(0) = .1 #Initial condition for V
+Nx(0) = .01 #Initial condition for Hx
+Ns(0) = 0 #Initial condition for Ns

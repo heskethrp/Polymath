@@ -1,0 +1,40 @@
+14.1(abc) ELEMENTARY STEP AND APPROXIMATE MODELS FOR ENZYME KINETICS  |POLVER05_3 |1
+d(S)/d(t) = -k1 * E * S + k1r * ES # Material balance on substrate S
+S(0) = 1.E-3
+d(E)/d(t) = -k1 * E * S + k1r * ES + k2 * ES # Material balance on enzyme E
+E(0) = 1.E-5
+d(ES)/d(t) = k1 * E * S - k1r * ES - k2 * ES # Material balance on enzyme-substrate complex ES
+ES(0) = 0
+d(P)/d(t) = k2 * ES # Material balance on product P
+P(0) = 0
+d(t99)/d(t) =  If (S >= (.01 * 1E-3)) Then (1) Else (0) # Calculates time t to 99% substrate conversion.
+t99(0) = 0
+# Quasi-steady-state solution
+nu = Vm * Sq / (K + Sq)
+Vm = k2 * E0
+E0 = 1.E-5
+K = (k1r + k2) / k1
+ESq = E0 * Sq / ((k1r + k2) / k1 + Sq)
+Eq = E0 - ESq
+d(Sq)/d(t) = -nu # Material balance on substrate Sq
+Sq(0) = 1.E-3
+d(Pq)/d(t) = nu # Material balance on product Pq
+Pq(0) = 0
+d(tq99)/d(t) =  If (Sq >= (.01 * 1E-3)) Then (1) Else (0) # Calculates time tq to 99% substrate conversion.
+tq99(0) = 0
+k1 = 1E9
+k1r = 5E5 * .3
+k2 = 1.0E-0 * 1
+t(0) = 0
+t(f) = 200
+# Analytical quasi-steady-state calculation
+Sq0 = 1.E-3
+Sqf = .01 * Sq0
+t99qCALC = (Sq0 - Sqf) / (k2 * E0) + K / (k2 * E0) * ln(Sq0 / Sqf) # This checks the quasi-steady-state solution.
+
+
+
+
+
+
+

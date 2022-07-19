@@ -1,0 +1,52 @@
+14.16(a1) DYNAMIC MODELING OF AN ANAEROBIC DIGESTER |POLVER05_0 |1
+d(Z)/d(t) = if(pH<=6) then (0) else (dZdt)
+d(X)/d(t) = if(pH<=6) then (0) else (dXdt)
+d(CO2D)/d(t) =if(pH<=6) then (0) else ( F * (CO2D0 - CO2D) / V - TG + RB + RC)
+d(T)/d(t) =if(pH<=6) then (0) else ( F * (T0 - T) / V)
+d(pCO2)/d(t) = if(pH<=6) then (0) else (pT * V * TG / (rhog * VG) - pCO2 * Q / VG) # modified for control of recycle
+d(S)/d(t) = if(pH<=6) then (0) else (F * (S0 - S) / V - mu * X / Yxs)
+mu = if(pH<=6) then (0) else (0.4 / (1 + 0.0333 / HS + HS / 0.667))
+dZdt = F * (Z0 - Z) / V
+RB = YCO2x * mu * X
+HCO3 = Z - S
+dXdt = F * (X0 - X) / V + mu * X - kT * T
+pT = 760 # mm of Hg
+RC = F * (HCO30 - HCO3) / V + dSdt - dZdt
+T0 = 0
+CO2Dstar = KH * pCO2
+TG = kLa * (CO2D - CO2Dstar)
+HP = K1 * CO2D / HCO3
+pH = -log(HP)
+HS = S * HP / Ka
+QCO2 = V * TG / rhog
+QCH4 = V * YCH4x * mu * X / rhog
+Q = pT * (QCO2 + QCH4) / (pT - pH2O)
+pH2O = 50 # Vapor pressure of water at 60C in mmHg
+rhog = 38.91 # Gas density in mmol/L
+F = 1 # L/day
+CO2D0 = 0
+V = 10. # L
+VG = 2 # L
+Z0 = 50 # meq/L
+YCO2x = 28.8 # mol CO2/ mol organism
+Yxs = 0.032 # mol organism/mol substrate
+YCH4x = 28.8 # mol CH4/mol organism
+S0 = 167
+X0 = 0
+kT = 2 # day-1
+HCO30 = 0
+dSdt = F * (S0 - S) / V - mu * X / Yxs
+KH = 0.0326
+kLa = 100 # day-1
+K1 = 6.5E-7
+Ka = 2.2E-5
+t(0) = 0
+t(f) = 10
+Z(0) = 50
+X(0) = 5.280
+CO2D(0) = 8.977
+T(0) = 0
+pCO2(0) = 273.3
+S(0) = 2.019
+
+

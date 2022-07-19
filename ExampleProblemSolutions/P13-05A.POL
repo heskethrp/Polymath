@@ -1,0 +1,16 @@
+13.5(a) DYNAMICS AND CONTROL OF A FLOW-THROUGH STORAGE TANK  |POLVER05_2 |1
+d(h) / d(t) = (F1-c*sqrt(h))/Ac #Accurate model differential equation
+h(0) = 5 #Initial condition for liquid level h
+d(hl)/d(t)=(F1-c/2*sqrt(hs)-c/2*hl/sqrt(hs))/Ac #Linearized model differential equation
+hl(0) = 5 #Initial condition for liquid level hl
+Ac=10 #Cross sectional area of tank
+hs=5 #Initial steady state liquid level 
+c=3/sqrt(hs) #Constant for calculation of outlet volumetric flow rate using liquid level height
+F1=3*0.5 #Calculation of new input flow rate at 50% of the original (step function at t = 0
+t(0) = 0 #Initial condition on time
+t(f) = 78 #Final value of time (must be greated than tLIM)
+hsNEW=(1.5/c)^2 #Calculation of new steady-state tank height after step function in F1
+d(tLIM)/d(t)=if(h>1.05*hsNEW)then(1)else(0) #Variable tLIM follows the time t until desired time condition is satisfied
+tLIM(0)=0 #Initial condition on tLIM
+
+

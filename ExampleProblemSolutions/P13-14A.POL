@@ -1,0 +1,34 @@
+13.14(a) PI CONTROL OF FERMENTER TEMPERATURE  |POLVER05_0 |1
+d(X) / d(t) = munet*X #Cell balance on batch reactor, kg/m3•h
+d(S)/d(t)=-munet*X/Yxs #Substrate balance on batch reactor, kg/m3•h
+d(T) / d(t) = -munet*X*deltaHR/(Yxs*rho*Cp)-UA*(T-Tj)/(V*rho*Cp) #Energy balance on fermenter broth volume, °C/h
+d(Tj) / d(t) = Fj*(Tj0-Tj)/Vj+UA*(T-Tj)/(Vj*rhoj*Cpj) #Energy balance on fermenter jacket, °C/h
+d(epsilon) / d(t) = T-Tset #Deviation from set point variable, °C/h
+d(tFERM)/d(t)=if(S>.1)then(1)else(0) #Calculation of needed fermentation time, °C/h
+munet=mum*S/(Ks+S) #Net bichemical reaction rate of cell production, kg cells/kg substrate•h
+Fj = if((Fj0+Kc*(T-Tset)+Kc*epsilon/tauI)<=0)then(0)else(if((Fj0+Kc*(T-Tset)+Kc*epsilon/tauI)>40)then(40)else (Fj0+Kc*(T-Tset)+Kc*epsilon/tauI)) #Cooling flow rate always > = zero. m3/h
+Cp=1 #Heat capacity of fermentation broth, kcal/kg•°C
+Yxs=0.5 #Yield coefficient for kg biomass/kg substrate
+deltaHR= -0.466  #Heat of reaction in kcal/kg substrate
+rho=1 #Density of fermenter broth, kg/m3
+rhoj=1 #Density of jacket cooling water, kg/m3
+UA=0.4 #Product of heat transfer coefficient and heat transfer area, kcal/h•°C
+V=20 #Volume of fermenter broth, m3
+Tj0=10 #Inlet temperature of cooling water, °C
+Vj=1 #Volume of cooling jacket in m3
+Cpj=1 #Heat capacity of cooling water, kcal/kg•°C
+Tset=25.0 #Set point temperature of fermenter in °C
+mum=1.0 #Mu constant in biochemical reaction expression in 1/h
+Ks=0.1 #Constant in biochemical reaction expression in kg/m3
+Fj0=2. #Coolant volumetric flow rate in m3/h
+Kc=0.0 #Proportional gain, m3/h•°C
+tauI=0.8 #Integral time, h
+X(0) = 0.1 #Initial cell concentration, kg/m3
+S(0)=20 #Initial substrate concentration, kg/m3
+T(0) = 25 #Initial fermenter broth temperature, °C
+Tj(0) = 10 #Initial jacket temperature, °C
+epsilon(0) = 0 #Initial deviation from set point, °C
+t(0)=0 #Initial time for fermenter simularion, h
+t(f) = 6 #Final time for fermenter simulation, h
+tFERM(0)=0 #Initial time to start fermentation, h
+

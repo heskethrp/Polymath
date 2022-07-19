@@ -1,0 +1,19 @@
+14.10(a) PREDATOR-PREY DYNAMICS OF MIXED CULTURES IN A CHEMOSTAT |POLVER05_0 |1
+d(Xp)/d(t) = -D * Xp + mump * Xb * Xp / (Kb + Xb)
+d(Xb)/d(t) = -D * Xb + mumb * S * Xb / (KS + S) - (1 / Yxpb) * mump * Xb * Xp / (Kb + Xb)
+d(S)/d(t) = D * (S0 - S) - (1 / Yxbs) * (mumb * S * Xb / (KS + S))
+mump = 0.24
+mumb = 0.25
+Kb = 4E8
+KS = 5E-4
+Yxpb = 7.14E-4
+Yxbs = 3.03E9
+D = 0.0625
+S0 = 0.5
+Day = t / 24
+Xp(0) = 1.4E4
+Xb(0) = 1.6E9
+S(0) = 0
+t(0) = 0
+t(f) = 360
+

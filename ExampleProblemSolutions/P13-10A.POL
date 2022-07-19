@@ -1,0 +1,24 @@
+13.10(a) PI CONTROLLER TUNING USING THE  AUTO TUNE VARIATION “ATV” METHOD  |POLVER05_0 |1
+d(T)/d(t) =  (WC*(Ti-T)+q)/rhoVCp 
+d(T0)/d(t) =  (T-T0-(taud/2)*dTdt)*2/taud 
+d(Tm)/d(t) =  (T0-Tm)/taum 
+d(errsum)/d(t) =  Tr-Tm 
+WC =  500 
+rhoVCp =  4000 
+taud =  1 
+taum =  5 
+Tr =  80
+Ti =  60 
+Kc = 0
+error=Tr-Tm 
+relay=if(error<0)then(-1)else(1)
+q =  10000+relay*4000
+dTdt =  (WC*(Ti-T)+q)/rhoVCp 
+t(0)=0
+T(0)=80
+T0(0)=80
+Tm(0)=80
+errsum(0)=0
+t(f)=100
+
+

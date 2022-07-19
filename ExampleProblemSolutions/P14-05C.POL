@@ -1,0 +1,17 @@
+14.5(c) DIFFUSION WITH REACTION IN SPHERICAL PARTICLES WITH IMMOBILIZED ENZYMES  |POLVER05_0 |1
+d(Nsr2) / d(r) = -Vmpp*S*r^2/(Km+S) #Material balance from differential balance within sphere
+d(S) / d(r) = -Ns/De #Fick's Law for diffusion with constant effective diffusivity
+d(nu) / d(r) = if (r>=0.75E-3) then (3*r^2*(S/(Km+S))/((R^3-(0.75*R)^3)*Ss/(Km+Ss)))else(0) #Calculation of effectiveness factor
+Ns=Nsr2/r^2 #Calculation of flux
+Km=0.1*Ss #Given relationship in problem
+De=3.E-4 #Effective diffusivity in cm2/min
+R=1.E-3 #Radius in cm
+Vmpp=if (r>=0.75E-3) then 0.5 else (0) #Vm''  in g-mol/min-cm3
+Ss=1.E-5 #Substrate concentration in g-mol/cm3 
+Nsr2(0) = 0 #Initial condition for flux at particle center
+S(0) =8.82E-9 #Initial condition for substrate concentration at particle center
+nu(0) = 0 #Initial condition for effectiveness factor calculation
+r(0) = 1.E-15 #Radius at center of particle
+r(f) = 1.E-3 #Radius of particle in cm
+
+
