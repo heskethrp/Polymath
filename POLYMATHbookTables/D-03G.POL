@@ -1,0 +1,8 @@
+Table D-3 Density and Viscosity of Kerosene in English Units
+100 29
+TF	rho	mu
+30	48.8	8e-05
+60	48.1	6e-05
+80	47.6	4.9e-05
+100	47.2	4.2e-05
+150	46.1	3.2e-05

@@ -1,0 +1,10 @@
+Table D-3 Density and Viscosity of MIL-M-5606 in English Units
+100 29
+TF	rho	mu
+0	55	0.0555
+30	54	0.0222
+60	53	0.0111
+80	52.5	0.00695
+100	52	0.00556
+150	51	0.00278
+200	50	0.0025

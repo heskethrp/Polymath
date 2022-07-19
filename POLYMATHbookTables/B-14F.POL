@@ -1,0 +1,16 @@
+Table B-14 Heat of Vaporization of Ethyl Ether  |POLVER05_ |4
+10  2 
+TF	deltaH
+0	95
+10	94.67
+20	94.44
+30	94.11
+40	93.56
+50	93.11
+60	91.89
+70	91.22
+80	90.56
+90	89.72
+*
+
+

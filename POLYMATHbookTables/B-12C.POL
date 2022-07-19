@@ -1,0 +1,13 @@
+Table B-12 Thermal Conductivity of n-Butane  |POLVER05_ |4
+7  2 
+TF	k
+20	30.99
+40	33.06
+60	35.54
+80	38.02
+100	40.91
+120	43.39
+200	54.14
+*
+
+

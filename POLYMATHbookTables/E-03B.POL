@@ -1,0 +1,11 @@
+Table E-3 Physical/Transport Properties of Benzene in English Units
+100 29
+TF	rho	Cp	mu	k
+60	55.2	0.395	0.000445	0.0856
+80	54.6	0.41	0.00038	0.0836
+100	53.6	0.42	0.00033	0.0814
+150	51.8	0.45	0.000245	0.0762
+200	49.9	0.48	0.000194	0.0711
+*
+muC6H6=exp(a1+(a2/(TF+a3)))$
+a1=12	a2=1000	a3=300

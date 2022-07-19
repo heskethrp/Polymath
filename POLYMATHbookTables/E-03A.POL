@@ -1,0 +1,11 @@
+Table E-3 Physical/Transport Properties of Kerosene in English Units
+100 29
+TF	rho	Cp	mu	k
+30	48.8	0.456	0.008	0.0809
+60	48.1	0.474	0.006	0.0805
+80	47.6	0.491	0.0049	0.08
+100	47.2	0.505	0.0042	0.0797
+150	46.1	0.54	0.0032	0.0788
+*
+muC6H6=exp(a1+(a2/(TF+a3)))$
+a1=12	a2=1000	a3=300
