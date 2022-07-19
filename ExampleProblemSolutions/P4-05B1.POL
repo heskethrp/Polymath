@@ -1,0 +1,28 @@
+COMPLEX CHEMICAL EQUILIBRIUM BY GIBBS ENERGY MINIMIZATION 4.5(b1)  |POLVER05_3 |2
+R = 1.9872
+sum = H2 + O2 + H2O + CO + CO2 + CH4 + C2H6 + C2H4 + C2H2
+f(lamda1) = 2 * CO2 + CO + 2 * O2 + H2O - 4 # Oxygen balance
+f(lamda2) = 4 * CH4 + 4 * C2H4 + 2 * C2H2 + 2 * H2 + 2 * H2O + 6 * C2H6 - 14 # Hydrogen balance
+f(lamda3) = CH4 + 2 * C2H4 + 2 * C2H2 + CO2 + CO + 2 * C2H6 - 2 # Carbon balance
+f(H2) = ln(H2 / sum) + 2 * lamda2
+f(H2O) = -46.03 / R + ln(H2O / sum) + lamda1 + 2 * lamda2
+f(CO) = -47.942 / R + ln(CO / sum) + lamda1 + lamda3
+f(CO2) = -94.61 / R + ln(CO2 / sum) + 2 * lamda1 + lamda3
+f(CH4) = 4.61 / R + ln(CH4 / sum) + 4 * lamda2 + lamda3
+f(C2H6) = 26.13 / R + ln(C2H6 / sum) + 6 * lamda2 + 2 * lamda3
+f(C2H4) = 28.249 / R + ln(C2H4 / sum) + 4 * lamda2 + 2 * lamda3
+f(C2H2) = C2H2 - exp(-(40.604 / R + 2 * lamda2 + 2 * lamda3)) * sum
+f(O2) = O2 - exp(-2 * lamda1) * sum
+H2(0) = 5.992
+O2(0) = 0.0001 > 0
+H2O(0) = 1
+CO(0) = 1
+CH4(0) = 0.001 > 0
+C2H4(0) = 0.001 > 0
+C2H2(0) = 0.001 > 0
+CO2(0) = 0.993
+C2H6(0) = 0.001 > 0
+lamda1(0) = 10
+lamda2(0) = 10
+lamda3(0) = 10
+

@@ -1,0 +1,10 @@
+3.6(a) Trial Solution for Two Point Boundary Value Problem
+d(CA)/d(z)=y
+d(y)/d(z)=k*CA/DAB
+k=0.001
+DAB=1.2E-9
+err=y
+z(0)=0
+CA(0)=0.2
+y(0)=-150
+z(f)=0.001

@@ -1,0 +1,19 @@
+7.8(a) FLASH EVAPORATION OF AN IDEAL MULTICOMPONENT MIXTURE |POLVER05_1 |2
+f(alpha)=x1*(1-k1)+x2*(1-k2)+x3*(1-k3)+x4*(1-k4)
+P=20*760
+TC=50
+k1=10^(6.6438-395.74/(266.681+TC))/P
+k2=10^(6.82915-663.72/(256.681+TC))/P
+k3=10^(6.80338-804/(247.04+TC))/P
+k4=10^(6.80776-935.77/(238.789+TC))/P
+x1=0.1/(1+alpha*(k1-1))
+x2=0.25/(1+alpha*(k2-1))
+x3=0.5/(1+alpha*(k3-1))
+x4=0.15/(1+alpha*(k4-1))
+y1=k1*x1
+y2=k2*x2
+y3=k3*x3
+y4=k4*x4
+alpha(min)=0
+alpha(max)=1
+

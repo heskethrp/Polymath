@@ -1,0 +1,18 @@
+11.24(a) EXOTHERMIC REVERSIBLE GAS PHASE REACTION IN A PACKED BED REACTOR |POLVER05_0 |1
+d(x)/d(W)=-rA/FA0
+d(T)/d(W)=(.8*(Ta-T)+rA*delH)/(CPA*FA0)
+d(y)/d(W)=-0.015*(1-.5*x)*(T/450)/(2*y)
+Ta=500
+delH=-40000
+CPA=40
+FA0=5
+k=.5*exp(5032*(1/450-1/T))
+CA=.271*(1-x)*(450/T)/(1-.5*x)*y
+CC=.271*.5*x*(450/T)/(1-.5*x)*y
+Kc=25000*exp(delH/8.314*(1/450-1/T))
+rA=-k*(CA^2-CC/Kc)
+W(0)=0
+x(0)=0
+T(0)=450
+y(0)=1
+W(f)=20

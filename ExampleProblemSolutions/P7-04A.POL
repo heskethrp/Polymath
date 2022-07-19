@@ -1,0 +1,18 @@
+7.4(a) THERMODYNAMIC PROPERTIES OF STEAM FROM REDLICH-KWONG EQUATION |POLVER05_1 |2
+f(V)=P-(R*T/(V-b)-a/(V*(V+b)*sqrt(T)))
+P=1
+R=0.08206
+Tc=647.4
+Pc=218.3
+Vsp=V/18
+TC=100
+T0=273.15
+T=273.15+TC
+b=0.08664*R*Tc/Pc
+a=0.42747*R^2*Tc^(5/2)/Pc
+Hv0=7.7*(T-T0)+0.04594e-2*(T^2-T0^2)/2+0.2521e-5*(T^3-T0^3)/3-0.8587e-9*(T^4-T0^4)/4
+Z=P*V/(R*T)
+Hdep=24.218*R*T*(Z-1-1.5*a*ln(1+b/V)/(b*R*T^1.5))
+Hv=2501.3+4.1868*(Hv0+Hdep)/18
+V(min)=20
+V(max)=40

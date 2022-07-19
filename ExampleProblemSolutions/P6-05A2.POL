@@ -1,0 +1,22 @@
+6.5(a) Secant Method for Two Point Boundary Value Problem  |POLVER05_0 |1
+d(CA)/d(z) = y #
+d(y)/d(z) = k*CA/DAB #
+d(CA1)/d(z) = y1 #
+d(y1)/d(z) = k*CA1/DAB #
+k = 0.001 #
+DAB = 1.2E-9 #
+err = y-0 #
+err1 = y1-0 #
+y0 = -130 #
+L = .001 #
+delta = 0.0001 #
+CAanal = 0.2*cosh(L*(k/DAB)^.5*(1-z/L))/(cosh(L*(k/DAB)^.5)) #
+derr = (err1-err)/(delta*y0) #
+ynew = y0-err/derr #
+z(0)=0
+CA(0)=0.2
+y(0)=-130
+CA1(0)=0.2
+y1(0)=-130.013
+z(f)=0.001
+

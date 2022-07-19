@@ -1,0 +1,16 @@
+6.9(a) ESTIMATING MODEL PARAMETERS INVOLVING ODE’S USING FERMENTATION DATA |POLVER05_0 |1
+d(y1)/d(t) = b1 * y1 * (1 - y1 / b2)
+d(y2)/d(t) = b3 * y1 - b4 * y2
+b1 = 0.1
+b2 = 4
+b3 = 0.02
+b4 = 0.02 
+y1(0) = 0.18
+y2(0) = 0
+t(0) = 0
+t(f) = 190
+
+
+
+
+

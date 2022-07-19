@@ -1,0 +1,17 @@
+3.5(a) Single Variable Optimization - Secant Method
+d(T1)/d(x)=-Qx1/k1
+d(T)/d(x)=-Qx/k
+Qx=-100000
+k=30*(1+0.002*T)
+k1=30*(1+0.002*T1)
+TB=1273
+delta=0.0001
+Qx1=(1+delta)*Qx
+err=Qx-5.676e-8*(T^4-TB^4)
+err1=Qx1-5.676e-8*(T1^4-TB^4)
+derr=(err1-err)/(delta*Qx)
+QxNEW=Qx-err/derr
+x(0)=0
+T1(0)=290
+T(0)=290
+x(f)=0.2

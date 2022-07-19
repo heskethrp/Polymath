@@ -1,0 +1,15 @@
+9.2(a) HEAT CONDUCTION IN A WIRE WITH ELECTRICAL HEAT SOURCE AND INSULATION |POLVER05_0 |1
+d(T)/d(r)=-Qr/k
+d(rQr)/d(r)=qdot*r
+Qr=if(r>0)then(rQr/r)else(0)
+k=5.
+ke=1.4e5*exp(0.0035*T)
+R1=.004
+err=T-288.15
+I=400/(3.1416*R1^2)
+qdot=I^2/ke
+r(0)=0
+T(0)=389.25
+rQr(0)=0
+r(f)=0.004
+

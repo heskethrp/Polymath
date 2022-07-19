@@ -1,0 +1,16 @@
+8.8(b) CALCULATIONS INVOLVING FRICTION FACTORS FOR FLOW IN PIPES  |POLVER05_1 |2
+f(dp)=dp-2*fF*rho*v*v*L/D
+f(fF)=if(Re<2100)then(fF-16/Re)else(fF-1/(4*log(Re*sqrt(fF))-0.4)^2)
+L=100
+D=0.04399
+T=5+273.15
+pi=3.1416
+q=0.0025
+rho=46.048+T*(9.418+T*(-0.0329+T*(4.882e-5-T*2.895e-8)))
+vis=exp(-10.547+541.69/(T-144.53))
+v=q/(pi*D^2/4)
+Re=D*v*rho/vis
+dp(0)=103000
+fF(0)=0.0046
+
+

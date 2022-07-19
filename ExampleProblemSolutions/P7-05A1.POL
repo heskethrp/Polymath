@@ -1,0 +1,19 @@
+7.5(a) ENTHALPY AND ENTROPY DEPARTURE USING THE REDLICH-KWONG EQUATION  |POLVER05_0 |1
+d(V)/d(Pr)=Pc/(-R*T/((V-b)^2)+a*(2*V+b)/((V^2*(V+b)^2)*sqrt(T)))
+Tc=647.4
+Pc=218.3
+R=0.08206
+Tr=1.2
+P=Pc*Pr
+T=Tc*Tr
+b=0.08664*R*Tc/Pc
+a=0.42747*R^2*Tc^(5/2)/Pc
+Z=P*V/(R*T)
+HdepFUN=(3*a/(2*b*R*T^1.5))*ln(1+b/V)-(Z-1)
+SdepFUN=(a/(2*b*R*T^1.5))*ln((1+b/V))-ln(Z-P*b/(R*T))
+Pr(0)=0.5
+V(0)=0.523726
+Pr(f)=30
+
+
+

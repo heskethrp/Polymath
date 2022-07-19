@@ -1,0 +1,14 @@
+2.9(b) GAS VOLUME CALCULATIONS USING VARIOUS EQUATIONS OF STATE  |POLVER05_1 |2
+f(V)=(P+a/(V*V))*(V-b)-R*T
+P=100
+R=0.08206
+T=300
+nmoles=2.5*1000/V
+Tc=304.2
+Pc=72.9
+a=27*R^2*Tc^2/(Pc*64)
+b=R*Tc/(8*Pc)
+V(min)=0.01
+V(max)=1
+
+

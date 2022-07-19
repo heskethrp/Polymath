@@ -1,0 +1,17 @@
+3.7(a) Expediting the Solution of Nonlinear Algebraic Equations   |POLVER05_2 |2
+f(CD)=CC*CD-KC1*CA*CB
+f(CX)=CX*CY-KC2*CB*CC
+f(CZ)=CZ-KC3*CA*CX
+KC1=1.06
+CY=CX+CZ
+KC2=2.63
+KC3=5
+CA0=1.5
+CB0=1.5
+CC=CD-CY
+CA=CA0-CD-CZ
+CB=CB0-CD-CY
+CD(0)=0
+CX(0)=0
+CZ(0)=0
+

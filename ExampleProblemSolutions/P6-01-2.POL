@@ -1,0 +1,18 @@
+6.1 SOLUTION OF STIFF ORDINARY DIFFERENTIAL EQUATIONS |POLVER05_3 |1
+d(S)/d(t) = -k * y * B * S / (Km + S)
+d(B)/d(t) = k * B * S / (Km + S)
+J11 = k * S / (Km + S) # dF1/dB
+J12 = k * Km * B / (Km + S) ^ 2 # dF1/dS
+J21 = -0.75 * k * S / (Km + S) # dF2/dB
+J22 =- 0.75 * k * Km * B / (Km + S) ^ 2 # dF2/dS
+lamda1 = (J11 + J22 + sqrt((J11 + J22) ^ 2 - 4 * (J11 * J22 - J12 * J21))) / 2
+lamda2 = (J11 + J22 - sqrt((J11 + J22) ^ 2 - 4 * (J11 * J22 - J12 * J21))) / 2
+k = 0.3
+y = .75
+Km = 1.e-6
+t(0) = 0
+S(0) = 5
+B(0) = 0.05
+t(f) =20
+
+

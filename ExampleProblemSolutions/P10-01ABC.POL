@@ -1,0 +1,15 @@
+10.1(a,b,c) ONE-DIMENSIONAL BINARY MASS TRANSFER IN A STEFAN TUBE |POLVER05_0 |1
+d(xA)/d(z)=-(1-xA)*NA/(DAB*C)
+P=99.4
+NA=3.5461e-6
+DAB=1.991e-5
+R=8.31434
+T=328.5
+xA1=0.688
+xBlm=(xA1-0)/ln(1/(1-xA1))
+C=P/(R*T)
+NACALC=DAB*C*(xA1-0)/((0.238-0)*xBlm)
+z(0)=0
+xA(0)=0.688
+z(f)=0.238
+

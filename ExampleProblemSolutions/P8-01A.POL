@@ -1,0 +1,14 @@
+8.1 LAMINAR FLOW OF A NEWTONIAN FLUID IN A HORIZONTAL PIPE |POLVER05_0 |1
+d(Vx)/d(r)=-TAUrx/mu
+d(rTAUrx)/d(r)=deltaP*r/L
+deltaP=500
+L=10
+TAUrx=if(r>0)then(rTAUrx/r)else(0)
+mu=8.937e-4
+R=.009295
+err=Vx-0
+r(0)=0
+Vx(0)=1.20842
+rTAUrx(0)=0
+r(f)=0.009295
+

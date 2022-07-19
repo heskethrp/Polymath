@@ -1,0 +1,9 @@
+2.14 UNSTEADY-STATE MIXING IN A TANK |POLVER05_0 |1
+d(M)/d(t)=10
+d(S)/d(t)=2-10*S/M
+SaltPC=100*S/M
+t(0)=0
+M(0)=1000
+S(0)=200
+t(f)=60
+

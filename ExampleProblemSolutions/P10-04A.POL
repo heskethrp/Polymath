@@ -1,0 +1,26 @@
+10.4(a) CONTROLLED DRUG DELIVERY BY DISSOLUTION OF PILL COATING  |POLVER05_0 |1
+d(D1)/d(t) = if(D1>0.3)then(-2*kL1*(SA-CAS)/rho)else(if(D1>1e-5)then(-2*kL1*(SD-CDS)/rho)else(0.0))
+d(CAS)/d(t) = (1/V)*(SW1*kL1*(SA-CAS)*3.1416*D1^2+SW2*kL2*(SA-CAS)*3.1416*D2^2+SW3*kL3*(SA-CAS)*3.1416*D3^2)-CAS/tau
+d(CDS)/d(t) = (1/V)*((1-SW1)*kL1*(SD-CDS)*3.1416*D1^2+(1-SW2)*kL2*(SD-CDS)*3.1416*D2^2+(1-SW3)*kL3*(SD-CDS)*3.1416*D3^2)-CDS/tau
+d(D2)/d(t) = if(D2>0.3)then(-2*kL2*(SA-CAS)/rho)else(if(D2>1e-5)then(-2*kL2*(SD-CDS)/rho)else(0.0))
+d(D3)/d(t) = if(D3>0.3)then(-2*kL3*(SA-CAS)/rho)else(if(D3>1e-5)then(-2*kL3*(SD-CDS)/rho)else(0.0))
+kL1 = 2*0.6/D1
+SA = 1.0
+rho = 1414.7
+SD = 0.4
+V = 1200
+SW1 = if(D1>0.3)then(1.0)else(0.0)
+SW2 = if(D2>0.3)then(1.0)else(0.0)
+kL2 = 2*0.6/D2
+SW3 = if(D3>0.3)then(1.0)else(0.0)
+kL3 = 2*0.6/D3
+tau = 240
+t(0)=0
+D1(0)=0.5
+CAS(0)=0
+CDS(0)=0
+D2(0)=0.4
+D3(0)=0.35
+t(f)=150
+
+

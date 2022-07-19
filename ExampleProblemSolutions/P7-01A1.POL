@@ -1,0 +1,15 @@
+7.1(a) COMPRESSIBILITY FACTOR VARIATION FROM VAN DER WAALS EQUATION |POLVER05_1 |2
+f(V)=(P+a/(V^2))*(V-b)-R*T
+R=0.08206
+Tc=304
+Pc=72
+Pr=.1
+Tr=1.1
+P=Pr*Pc
+T=Tc*Tr
+a=27*(R^2*Tc^2/Pc)/64
+b=R*Tc/(8*Pc)
+Z=P*V/(R*T)
+V(min)=0
+V(max)=5
+

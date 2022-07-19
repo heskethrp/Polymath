@@ -1,0 +1,16 @@
+2.16(a) HEAT EXCHANGE IN A SERIES OF TANKS |POLVER05_0 |1
+d(T1)/d(t)=(W*Cp*(T0-T1)+UA*(Tsteam-T1))/(M*Cp)
+d(T2)/d(t)=(W*Cp*(T1-T2)+UA*(Tsteam-T2))/(M*Cp)
+d(T3)/d(t)=(W*Cp*(T2-T3)+UA*(Tsteam-T3))/(M*Cp)
+W=100
+Cp=2.0
+T0=20
+UA=10.
+Tsteam=250
+M=1000
+t(0)=0
+T1(0)=20
+T2(0)=20
+T3(0)=20
+t(f)=200
+

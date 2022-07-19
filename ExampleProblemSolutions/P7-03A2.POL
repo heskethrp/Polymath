@@ -1,0 +1,19 @@
+7.3(a) ISOTHERMAL COMPRESSION OF GAS USING REDLICH-KWONG EQUATION OF STATE  |POLVER05_0 |1
+d(W)/d(Y)=P
+R=0.08206
+T=50+273.15
+Tc=304.2
+Pc=72.9
+V=26.4134-Y
+lnV=ln(V)
+b=0.08664*R*Tc/Pc
+a=0.42747*R^2*Tc^(5/2)/Pc
+Pideal=R*T/V
+Wideal=-R*T*ln(V/26.4134)
+lnPideal=ln(Pideal)
+P=R*T/(V-b)-a/(V*(V+b)*sqrt(T))
+lnP=ln(P)
+Y(0)=0
+W(0)=0
+Y(f)=26.1493
+

@@ -1,0 +1,13 @@
+8.6(a) TERMINAL VELOCITY OF FALLING PARTICLES  |POLVER05_1 |2
+f(vt)=vt^2*(3*CD*rho)-4*g*(rhop-rho)*Dp
+rho=994.6
+g=9.80665
+rhop=1800
+Dp=0.208e-3
+vis=8.931e-4
+Re=Dp*vt*rho/vis
+CD=if(Re<0.1)then(24/Re)else(24*(1+0.14*Re^0.7)/Re)
+vt(min)=0.0001 
+vt(max)=0.05
+
+

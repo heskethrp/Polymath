@@ -1,0 +1,14 @@
+9.1(c) ONE-DIMENSIONAL HEAT TRANSFER THROUGH A MULTILAYERED WALL  |POLVER05_0 |1
+d(T)/d(x) = if(x<=LA)then(-Qx/kA)else(if(x<=(LA+LB)and(x>LA))then(-Qx/kB)else(-Qx/kC))
+err = T-298
+LA = .015
+Qx = -12.2
+kA = .151
+LB = .1
+kB = 2.5*exp(-1225/T) 
+kC = .762 
+x(0)=0
+T(0)=255
+x(f)=0.19
+
+

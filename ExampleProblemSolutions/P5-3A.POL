@@ -1,0 +1,26 @@
+ADIABATIC OPERATION OF A TUBULAR REACTOR FOR CRACKING OF ACETONE  |POLVER05_0 |1
+d(FA)/d(V) = rA # Differential mass balance on acetone
+d(FB)/d(V) = -rA # Differential mass balance on ketene
+d(FC)/d(V) = -rA # Differential mass balance on methane
+d(T)/d(V) = (-deltaH) * (-rA) / (FA * CpA + FB * CpB + FC * CpC + FN * CpN) # Differential enthalpy balance
+XA = (FA0-FA)/FA0 # Conversion of acetone
+rA = -k * CA # Reaction rate in kg-mole/m3-s
+FA0 = 38.3 # Feed rate of acetone in kg-mol/s
+FN = 38.3 - FA0 # Feed rate of nitrogen in kg-mol/s
+P = 162 # Pressure kPa
+CA = yA * P * 1000 / (8.31 * T) # Concentration of acetone in k-mol/m3
+yA = FA / (FA + FB + FC + FN) # Mole fraction of acetone
+yB = FB / (FA + FB + FC + FN) # Mole fraction of ketene
+yC = FC / (FA + FB + FC + FN) # Mole fraction of methane
+k = 8.2E14 * exp(-34222 / T) # Reaction rate constant in s-1
+deltaH = 80770 + 6.8 * (T - 298) - .00575 * (T ^ 2 - 298 ^ 2) - 1.27e-6 * (T ^ 3 - 298 ^ 3)# Heat of reaction in J/mol-K
+CpA = 26.6 + .183 * T - 45.86e-6 * T ^ 2 # Heat capacity of acetone in J/mol-K
+CpB = 20.04 + 0.0945 * T - 30.95e-6 * T ^ 2 # Heat capacity of ketene in J/mol-K
+CpC = 13.39 + 0.077 * T - 18.71e-6 * T ^ 2 # Heat capacity of methane in J/mol-K
+CpN = 6.25 + 8.78e-3 * T - 2.1e-8 * T ^ 2 # Heat capacity of nitrogen in J/mol-K
+FB(0) = 0 # Feed rate of ketene in kg-mol/s
+FA(0) = 38.3 # Feed rate of acetone in kg-mol/s
+FC(0) = 0 # Feed rate of methane in kg-mol/s
+T(0) = 1035 # Inlet reactor temperature in K
+V(0) = 0 # Reactor volume in m3
+V(f) = 4

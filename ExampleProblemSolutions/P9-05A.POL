@@ -1,0 +1,15 @@
+9.5(a) HEAT LOSS THROUGH PIPE FLANGES |POLVER05_0 |1
+d(rQ)/d(r)=-h*r*(T-Tinf)/B
+d(T)/d(r)=-Q/k
+Q=rQ/r
+k=133
+h=3
+Tinf=60
+B=0.5/12
+err=rQ-r*h*(T-Tinf)
+q=Q*2*3.1416*r*B
+r(0)=0.08333
+rQ(0)=542.4
+T(0)=260
+r(f)=0.25
+

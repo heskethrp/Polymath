@@ -1,0 +1,34 @@
+COMPLEX CHEMICAL EQUILIBRIUM BY GIBBS ENERGY MINIMIZATION 4.(c)   |POLVER05_0 |2
+R = 1.9872
+sum = H2 + H2O + CO + O2 + CO2 + CH4 + C2H6 + C2H4 + C2H2
+OxBal = 2 * CO2 + CO + 2 * O2 + H2O - 4 # Oxygen balance
+HydBal = 4 * CH4 + 4 * C2H4 + 2 * C2H2 + 2 * H2 + 2 * H2O + 6 * C2H6 - 14 # Hydrogen balance
+CarBal = CH4 + 2 * C2H4 + 2 * C2H2 + CO2 + CO + 2 * C2H6 - 2 # Carbon balance
+eps = 0.1e-20
+G_O2 = O2 * ln(abs(O2 + eps / sum))
+G_H2 = H2 * ln(H2 / sum)
+G_H2O = H2O * (-46.03 / R + ln(H2O / sum))
+G_CO = CO * (-47.942 / R + ln(CO / sum))
+G_CO2 = CO2 * (-94.61 / R + ln(CO2 / sum))
+G_CH4 = CH4 * (4.61 / R + ln(CH4 / sum))
+G_C2H6 = C2H6 * (26.13 / R + ln(abs(C2H6 + eps / sum)))
+G_C2H4 = C2H4 * (28.249 / R + ln(abs(C2H4 + eps / sum)))
+G_C2H2 = C2H2 * (40.604 / R + ln(abs(C2H2 + eps / sum)))
+ObjFun = G_H2 + G_H2O + G_CO + G_O2 + G_CO2 + G_CH4 + G_C2H6 + G_C2H4 + G_C2H2
+# O2 = exp(-2 * lamda1) * sum
+O2 = 1e-20
+H2 = 5.992
+H2O = 1
+CO = 1
+CH4 = 0.001
+C2H4 = 0.001
+C2H2 = 0.001
+CO2 = 0.993
+C2H6 = 0.001
+
+
+
+
+
+
+

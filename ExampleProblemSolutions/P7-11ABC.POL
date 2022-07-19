@@ -1,0 +1,14 @@
+7.11(a,b,c) VAPOR LIQUID EQUILIBRIUM DATA FROM TOTAL PRESSURE MEASUREMENTS I  |POLVER05_0 |1
+d(I)/d(x1)=ln(gamma1/gamma2)
+d(y1)/d(x1)=dy1dx1
+P=57.6218+463.137*x1-419.736*x1^2+169.871*x1^3
+gamma1=y1*P/(x1*271)
+gamma2=(1-y1)*P/((1-x1)*57.52)
+dlnpdx=(463.137-2*419.736*x1+3*169.871*x1^2)/P
+dy1dx1=y1*(1-y1)*dlnpdx/(y1-x1)
+x1(0)=1e-05
+I(0)=0
+y1(0)=9.029e-05
+x1(f)=0.99999
+
+
